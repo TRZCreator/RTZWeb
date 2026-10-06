@@ -145,6 +145,35 @@
             border-color: color-mix(in oklab, oklch(0.78 0.065 68) 50%, transparent);
             color: oklch(0.78 0.065 68);
         }
+        #audio-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 25;
+            display: flex;
+            gap: 8px;
+        }
+        #audio-controls button {
+            min-height: 44px;
+            padding: 0 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 22px;
+            background: rgba(0, 0, 0, 0.72);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #d4d4d8;
+            cursor: pointer;
+            font: 500 13px/1 system-ui, sans-serif;
+        }
+        #audio-controls button:hover,
+        #audio-controls button:focus-visible {
+            border-color: color-mix(in oklab, oklch(0.78 0.065 68) 50%, transparent);
+            color: oklch(0.78 0.065 68);
+        }
+        #audio-controls button:focus-visible {
+            outline: 2px solid oklch(0.78 0.065 68);
+            outline-offset: 3px;
+        }
         #map-modal {
             display: none;
             position: fixed;
@@ -523,6 +552,13 @@
   <body>
   
 
+    <audio id="gallery-audio" autoplay loop preload="auto">
+        <source src="Adventurous%20Beyond%20Barriers%20-%20Suno.mp3" type="audio/mpeg">
+    </audio>
+    <div id="audio-controls" role="group" aria-label="Gallery audio controls">
+        <button id="audio-play-toggle" type="button" aria-pressed="false">Play music</button>
+        <button id="audio-mute-toggle" type="button" aria-pressed="false">Mute</button>
+    </div>
 
   
   	<div id="loader">
@@ -575,6 +611,80 @@
     })();
     </script>
     <script src='openvgal-viewer.js'></script>
+
+    <script>
+    (function setupGalleryAudio() {
+        var audio = document.getElementById('gallery-audio');
+        var playButton = document.getElementById('audio-play-toggle');
+        var muteButton = document.getElementById('audio-mute-toggle');
+        var playbackPending = false;
+
+        function updatePlaybackButton() {
+            if (audio.error) {
+                playButton.textContent = 'Audio unavailable';
+                playButton.disabled = true;
+                return;
+            }
+            var isPlaying = !audio.paused && !audio.ended;
+            playButton.textContent = isPlaying ? 'Pause music' : 'Play music';
+            playButton.setAttribute('aria-pressed', String(isPlaying));
+        }
+
+        function startPlayback() {
+            if (playbackPending || !audio.paused) return;
+            playbackPending = true;
+            try {
+                audio.play().then(function() {
+                    playbackPending = false;
+                    updatePlaybackButton();
+                }).catch(function(error) {
+                    playbackPending = false;
+                    updatePlaybackButton();
+                    if (error.name !== 'NotAllowedError') {
+                        console.error('Gallery background audio failed to play:', error);
+                    }
+                });
+            } catch (error) {
+                playbackPending = false;
+                updatePlaybackButton();
+                console.error('Gallery background audio failed to play:', error);
+            }
+        }
+
+        function resumeAfterInteraction() {
+            document.removeEventListener('pointerdown', resumeAfterInteraction);
+            document.removeEventListener('keydown', resumeAfterInteraction);
+            if (audio.paused) startPlayback();
+        }
+
+        playButton.addEventListener('click', function() {
+            if (audio.paused) {
+                startPlayback();
+            } else {
+                audio.pause();
+            }
+        });
+
+        muteButton.addEventListener('click', function() {
+            audio.muted = !audio.muted;
+            muteButton.textContent = audio.muted ? 'Unmute' : 'Mute';
+            muteButton.setAttribute('aria-pressed', String(audio.muted));
+        });
+
+        audio.addEventListener('play', updatePlaybackButton);
+        audio.addEventListener('pause', updatePlaybackButton);
+        audio.addEventListener('error', function() {
+            console.error('Gallery background audio could not be loaded:', audio.currentSrc);
+            playButton.disabled = true;
+            playButton.textContent = 'Audio unavailable';
+        });
+
+        document.addEventListener('pointerdown', resumeAfterInteraction);
+        document.addEventListener('keydown', resumeAfterInteraction);
+        updatePlaybackButton();
+        startPlayback();
+    })();
+    </script>
 
     <!-- Navigation Map -->
     <button id="map-button" onclick="toggleMap()" title="Gallery Map" style="display:none;">
