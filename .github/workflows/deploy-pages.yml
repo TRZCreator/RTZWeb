@@ -28,8 +28,9 @@ jobs:
       - name: Prepare site files
         run: |
           mkdir _site
-          cp index.html styles.css script.js TRZ-Logo-HD.png TRZ-Logo-HD-small.png _site/
-          cp -R "Navigation Page - RTZ" SatyakamsVGal _site/
+          cp "RTZWeb/Coming Soon"/index.html "RTZWeb/Coming Soon"/styles.css "RTZWeb/Coming Soon"/script.js "RTZWeb/Coming Soon"/TRZ-Logo-HD.png "RTZWeb/Coming Soon"/TRZ-Logo-HD-small.png _site/
+          cp -R "RTZWeb/Coming Soon" _site/
+          cp -R "RTZWeb/Navigation Page" RTZWeb/SatyakamsVGal _site/
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
