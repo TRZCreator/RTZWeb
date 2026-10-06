@@ -651,7 +651,8 @@
             }
         }
 
-        function resumeAfterInteraction() {
+        function resumeAfterInteraction(event) {
+            if (event.target instanceof Element && event.target.closest('#audio-controls')) return;
             document.removeEventListener('pointerdown', resumeAfterInteraction);
             document.removeEventListener('keydown', resumeAfterInteraction);
             if (audio.paused) startPlayback();
