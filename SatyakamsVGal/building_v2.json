@@ -1,0 +1,240 @@
+{
+  "Satyakams": {
+    "parent": "none",
+    "resource": "Satyakams.glb",
+    "template": "T_small_dark_B.glb",
+    "Achyuta Samanta": {
+      "resource": "/Satyakams/Achyuta Samanta.jpg",
+      "resource_type": "image",
+      "width": "113.25",
+      "height": "120.00",
+      "location": "[14.922,11.496,2.000]",
+      "vector": "[-1.0,0.0]",
+      "metadata": "ID #0 Achyuta Samanta"
+    },
+    "Ajay Devgn": {
+      "resource": "/Satyakams/Ajay Devgn.jpg",
+      "resource_type": "image",
+      "width": "84.15",
+      "height": "120.00",
+      "location": "[-14.929,-11.082,2.000]",
+      "vector": "[1.0,0.0]",
+      "metadata": "ID #1 Ajay Devgn"
+    },
+    "Annie Besant": {
+      "resource": "/Satyakams/Annie Besant.jpeg",
+      "resource_type": "image",
+      "width": "85.95",
+      "height": "120.00",
+      "location": "[4.333,14.922,2.000]",
+      "vector": "[0.0,-1.0]",
+      "metadata": "ID #2 Annie Besant"
+    },
+    "Asha Bhosale copy": {
+      "resource": "/Satyakams/Asha Bhosale copy.jpg",
+      "resource_type": "image",
+      "width": "93.75",
+      "height": "120.00",
+      "location": "[-11.885,14.912,2.000]",
+      "vector": "[0.0,-1.0]",
+      "metadata": "ID #3 Asha Bhosale copy"
+    },
+    "Balraj Sahni": {
+      "resource": "/Satyakams/Balraj Sahni.jpg",
+      "resource_type": "image",
+      "width": "88.95",
+      "height": "120.00",
+      "location": "[11.756,-14.926,2.000]",
+      "vector": "[0.0,1.0]",
+      "metadata": "ID #4 Balraj Sahni"
+    },
+    "Bipin Rawat": {
+      "resource": "/Satyakams/Bipin Rawat.jpg",
+      "resource_type": "image",
+      "width": "88.95",
+      "height": "120.00",
+      "location": "[-4.390,-14.926,2.000]",
+      "vector": "[0.0,1.0]",
+      "metadata": "ID #5 Bipin Rawat"
+    },
+    "Cristiano Ronaldo": {
+      "resource": "/Satyakams/Cristiano Ronaldo.jpg",
+      "resource_type": "image",
+      "width": "83.03",
+      "height": "120.00",
+      "location": "[14.922,7.617,2.000]",
+      "vector": "[-1.0,0.0]",
+      "metadata": "ID #6 Cristiano Ronaldo"
+    },
+    "Dimple Kapadia (Rudaali)": {
+      "resource": "/Satyakams/Dimple Kapadia (Rudaali).jpg",
+      "resource_type": "image",
+      "width": "88.35",
+      "height": "120.00",
+      "location": "[-14.929,-6.694,2.000]",
+      "vector": "[1.0,0.0]",
+      "metadata": "ID #7 Dimple Kapadia (Rudaali)"
+    },
+    "Droupadi Murmu": {
+      "resource": "/Satyakams/Droupadi Murmu.jpg",
+      "resource_type": "image",
+      "width": "90.15",
+      "height": "120.00",
+      "location": "[14.922,3.978,2.000]",
+      "vector": "[-1.0,0.0]",
+      "metadata": "ID #8 Droupadi Murmu"
+    },
+    "Emma Watson": {
+      "resource": "/Satyakams/Emma Watson.jpg",
+      "resource_type": "image",
+      "width": "104.70",
+      "height": "120.00",
+      "location": "[-14.929,-2.092,2.000]",
+      "vector": "[1.0,0.0]",
+      "metadata": "ID #9 Emma Watson"
+    },
+    "Gulzar": {
+      "resource": "/Satyakams/Gulzar.jpg",
+      "resource_type": "image",
+      "width": "84.30",
+      "height": "120.00",
+      "location": "[8.033,14.922,2.000]",
+      "vector": "[0.0,-1.0]",
+      "metadata": "ID #10 Gulzar"
+    },
+    "Hrithik Roshan (Lakshya)": {
+      "resource": "/Satyakams/Hrithik Roshan (Lakshya).jpg",
+      "resource_type": "image",
+      "width": "120.00",
+      "height": "109.42",
+      "location": "[-7.932,14.912,2.000]",
+      "vector": "[0.0,-1.0]",
+      "metadata": "ID #11 Hrithik Roshan (Lakshya)"
+    },
+    "Irrfan Khan": {
+      "resource": "/Satyakams/Irrfan Khan.jpg",
+      "resource_type": "image",
+      "width": "105.37",
+      "height": "120.00",
+      "location": "[7.884,-14.926,2.000]",
+      "vector": "[0.0,1.0]",
+      "metadata": "ID #12 Irrfan Khan"
+    },
+    "J.K Rowling": {
+      "resource": "/Satyakams/J.K Rowling.jpg",
+      "resource_type": "image",
+      "width": "83.10",
+      "height": "120.00",
+      "location": "[-8.076,-14.926,2.000]",
+      "vector": "[0.0,1.0]",
+      "metadata": "ID #13 J.K Rowling"
+    },
+    "John B. Goodenough": {
+      "resource": "/Satyakams/John B. Goodenough.jpg",
+      "resource_type": "image",
+      "width": "120.00",
+      "height": "95.85",
+      "location": "[14.922,-0.045,2.000]",
+      "vector": "[-1.0,0.0]",
+      "metadata": "ID #14 John B. Goodenough"
+    },
+    "Julia Roberts": {
+      "resource": "/Satyakams/Julia Roberts.jpg",
+      "resource_type": "image",
+      "width": "77.25",
+      "height": "120.00",
+      "location": "[-14.929,2.394,2.000]",
+      "vector": "[1.0,0.0]",
+      "metadata": "ID #15 Julia Roberts"
+    },
+    "Kailash Satyarthi": {
+      "resource": "/Satyakams/Kailash Satyarthi.jpg",
+      "resource_type": "image",
+      "width": "95.33",
+      "height": "120.00",
+      "location": "[14.922,-4.123,2.000]",
+      "vector": "[-1.0,0.0]",
+      "metadata": "ID #16 Kailash Satyarthi"
+    },
+    "Khushwant Singh": {
+      "resource": "/Satyakams/Khushwant Singh.jpg",
+      "resource_type": "image",
+      "width": "91.35",
+      "height": "120.00",
+      "location": "[-14.929,6.741,2.000]",
+      "vector": "[1.0,0.0]",
+      "metadata": "ID #17 Khushwant Singh"
+    },
+    "Marilyn Monroe": {
+      "resource": "/Satyakams/Marilyn Monroe.jpg",
+      "resource_type": "image",
+      "width": "84.83",
+      "height": "120.00",
+      "location": "[11.721,14.922,2.000]",
+      "vector": "[0.0,-1.0]",
+      "metadata": "ID #18 Marilyn Monroe"
+    },
+    "Martin Cooper": {
+      "resource": "/Satyakams/Martin Cooper.jpg",
+      "resource_type": "image",
+      "width": "79.72",
+      "height": "120.00",
+      "location": "[-4.126,14.912,2.000]",
+      "vector": "[0.0,-1.0]",
+      "metadata": "ID #19 Martin Cooper"
+    },
+    "Monalisa": {
+      "resource": "/Satyakams/Monalisa.jpg",
+      "resource_type": "image",
+      "width": "75.82",
+      "height": "120.00",
+      "location": "[4.149,-14.926,2.000]",
+      "vector": "[0.0,1.0]",
+      "metadata": "ID #20 Monalisa"
+    },
+    "Raghunath Mohapatra": {
+      "resource": "/Satyakams/Raghunath Mohapatra.jpg",
+      "resource_type": "image",
+      "width": "89.17",
+      "height": "120.00",
+      "location": "[-11.765,-14.926,2.000]",
+      "vector": "[0.0,1.0]",
+      "metadata": "ID #21 Raghunath Mohapatra"
+    },
+    "Rishi Kapoor": {
+      "resource": "/Satyakams/Rishi Kapoor.jpg",
+      "resource_type": "image",
+      "width": "99.00",
+      "height": "120.00",
+      "location": "[14.922,-7.982,2.000]",
+      "vector": "[-1.0,0.0]",
+      "metadata": "ID #22 Rishi Kapoor"
+    },
+    "Sai Baba": {
+      "resource": "/Satyakams/Sai Baba.jpg",
+      "resource_type": "image",
+      "width": "78.15",
+      "height": "120.00",
+      "location": "[-14.929,11.097,2.000]",
+      "vector": "[1.0,0.0]",
+      "metadata": "ID #23 Sai Baba"
+    },
+    "Shraddha Kapoor": {
+      "resource": "/Satyakams/Shraddha Kapoor.jpg",
+      "resource_type": "image",
+      "width": "89.25",
+      "height": "120.00",
+      "location": "[14.922,-11.777,2.000]",
+      "vector": "[-1.0,0.0]",
+      "metadata": "ID #24 Shraddha Kapoor"
+    }
+  },
+  "Technical": {
+    "ambientLight": 0.5,
+    "pointLight": 50,
+    "style": "dark",
+    "show_plaques": false,
+    "show_frames": true,
+    "skip_hub": true
+  }
+}

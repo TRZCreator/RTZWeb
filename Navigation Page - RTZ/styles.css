@@ -121,6 +121,8 @@ h1 {
 
 .experience-button {
   position: relative;
+  display: grid;
+  place-items: center;
   isolation: isolate;
   width: min(100%, 30rem);
   min-height: clamp(4.75rem, 7vw, 5.5rem);
@@ -129,6 +131,7 @@ h1 {
   border: 1px solid rgba(255, 239, 171, 0.68);
   clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%, 9% 50%);
   color: #111;
+  text-decoration: none;
   background: linear-gradient(105deg, var(--gold-deep) 0%, var(--gold-mid) 42%, #f5d240 76%, var(--gold-mid) 100%);
   box-shadow: 0 0 0.75rem rgba(247, 214, 122, 0.28);
   cursor: pointer;
