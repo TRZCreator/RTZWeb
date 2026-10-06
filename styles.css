@@ -1,4 +1,4 @@
-.root {
+:root {
   --bg: #020303;
   --bg-2: #050b0d;
   --gold-1: #f7d67a;
@@ -47,20 +47,33 @@ body {
 }
 
 .topbar {
+  position: relative;
   width: 100%;
-  padding: 18px 28px 28px;
+  padding: 18px 28px 18px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-start;
-  border-bottom: 1px solid var(--line);
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(216, 171, 63, 0.5);
 }
 
 .brand-round {
+  position: relative;
+  z-index: 1;
   width: 92px;
   height: 92px;
   display: grid;
   place-items: center;
-  margin-top: 8px;
+  margin-top: 6px;
+  transform: translateY(2px);
 }
 
 .brand-svg {
@@ -213,7 +226,8 @@ h1 {
 
   .topbar {
     padding-top: 16px;
-    padding-bottom: 18px;
+    padding-bottom: 16px;
+    align-items: flex-end;
   }
 }
 
