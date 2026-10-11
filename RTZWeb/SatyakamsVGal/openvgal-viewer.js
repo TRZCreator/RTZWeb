@@ -177,7 +177,7 @@
 	// (gallery predates v4 — regenerate) or 'BAD_TEMPLATE' (stale/corrupt _B file
 	// — re-download / CDN). Detail already went to console.error; creators rarely
 	// have devtools open, so the overlay carries the short fix plus a console hint.
-	// Design system: #000 bg, Inter, zinc text, indigo accent, SVG icon (no emoji).
+	// Design system: #000 bg, Gelasio, zinc text, indigo accent, SVG icon (no emoji).
 	function showTemplateError(kind, glb_file) {
 		// Hide the loading spinner if it's up.
 		var loader = document.getElementById('loader') || document.getElementById('loaded');
@@ -201,7 +201,7 @@
 		overlay.setAttribute('style',
 			'position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;' +
 			'display:flex;align-items:center;justify-content:center;padding:24px;' +
-			'background:#000;font-family:Inter,system-ui,sans-serif;');
+			'background:#000;font-family:Gelasio,Georgia,serif;');
 		overlay.innerHTML =
 			'<div style="max-width:440px;text-align:center;">' +
 				'<svg width="40" height="40" viewBox="0 0 24 24" fill="none" ' +
@@ -225,6 +225,73 @@
 		if (!scene) return;
 		var plaquesRoot = scene.getTransformNodeByName('plaques_root');
 		if (plaquesRoot) plaquesRoot.setEnabled(checkbox.checked);
+	};
+
+	window.createBrandPlacard = function(sceneRef) {
+		if (!sceneRef) return null;
+		const existing = sceneRef.getMeshByName('brand_placard');
+		if (existing) existing.dispose();
+
+		const texW = 2048;
+		const texH = 512;
+		const tex = new BABYLON.DynamicTexture('brand_placard_texture', { width: texW, height: texH }, sceneRef, false);
+		const ctx = tex.getContext();
+		ctx.clearRect(0, 0, texW, texH);
+
+		ctx.fillStyle = '#120d08';
+		ctx.fillRect(36, 36, texW - 72, texH - 72);
+		ctx.strokeStyle = '#d4af37';
+		ctx.lineWidth = 18;
+		ctx.strokeRect(52, 52, texW - 104, texH - 104);
+
+		const placardText = "Satyakam's Magic With Graphite";
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		const maxTextWidth = texW - 280;
+		let textSize = 126;
+		ctx.font = 'bold ' + textSize + 'px Gelasio, Georgia, serif';
+		while (ctx.measureText(placardText).width > maxTextWidth && textSize > 32) {
+			textSize -= 2;
+			ctx.font = 'bold ' + textSize + 'px Gelasio, Georgia, serif';
+		}
+
+		const glow = ctx.createLinearGradient(0, texH * 0.25, texW, texH * 0.75);
+		glow.addColorStop(0, '#fff4bd');
+		glow.addColorStop(0.24, '#f5d66f');
+		glow.addColorStop(0.5, '#fff2a6');
+		glow.addColorStop(0.76, '#d4a72c');
+		glow.addColorStop(1, '#ffed9a');
+		ctx.fillStyle = glow;
+		ctx.shadowColor = 'rgba(255, 207, 66, 0.95)';
+		ctx.shadowBlur = 34;
+		ctx.fillText(placardText, texW / 2, texH / 2, maxTextWidth);
+		ctx.shadowColor = 'rgba(255, 244, 189, 0.8)';
+		ctx.shadowBlur = 10;
+		ctx.fillStyle = 'rgba(255, 248, 213, 0.35)';
+		ctx.fillText(placardText, texW / 2, texH / 2 - 3, maxTextWidth);
+		ctx.shadowBlur = 0;
+		tex.update();
+		tex.hasAlpha = true;
+
+		const mat = new BABYLON.StandardMaterial('brand_placard_material', sceneRef);
+		mat.diffuseTexture = tex;
+		mat.emissiveTexture = tex;
+		mat.specularColor = new BABYLON.Color3(0, 0, 0);
+		mat.disableLighting = true;
+		mat.useAlphaFromDiffuseTexture = true;
+		mat.transparencyMode = BABYLON.Material.MATERIAL_ALPHABLEND;
+
+		const plane = BABYLON.MeshBuilder.CreatePlane('brand_placard', {
+			width: 3.6,
+			height: 1.0,
+			sideOrientation: BABYLON.Mesh.DOUBLESIDE
+		}, sceneRef);
+		// The marked bay is centered on the north wall (z ~= 14.92). Face
+		// it toward the gallery and keep the placard just off the wall surface.
+		plane.position = new BABYLON.Vector3(0, 2, 14.84);
+		plane.material = mat;
+		plane.isPickable = false;
+		return plane;
 	};
 
 	window.initFunction = async function() {
@@ -321,7 +388,7 @@
 				(function () {
 					const panel = document.createElement("div");
 					panel.style.cssText = "position:fixed;top:10px;left:10px;z-index:99999;"
-						+ "background:rgba(0,0,0,0.75);color:#fafafa;font:12px Inter,sans-serif;"
+						+ "background:rgba(0,0,0,0.75);color:#fafafa;font:12px Gelasio,Georgia,serif;"
 						+ "padding:10px 12px;border-radius:8px;width:200px;user-select:none;";
 					panel.innerHTML = "<div style='margin-bottom:6px;font-weight:600;'>SSAO &nbsp;<span style='color:#a1a1aa;font-weight:400;'>K=on/off</span></div>";
 					const knobs = [
@@ -641,6 +708,7 @@
 		}
 
 
+		await document.fonts.load('bold 126px Gelasio');
 		window.engine = await asyncEngineCreation();
 		if (!engine) throw 'engine should not be null.';
 		startRenderLoop(engine, canvas);
@@ -650,6 +718,7 @@
 		const startGallery = startGalleryName(config_file_content);
 		window.current_gallery = startGallery;
 		scene=createScene();
+		window.createBrandPlacard(scene);
 		if (typeof ovgMark === 'function') ovgMark('scene created');
 		const framesPerSecond = 60;
 		const gravity = -9.81;

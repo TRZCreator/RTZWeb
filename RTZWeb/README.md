@@ -10,7 +10,7 @@ From this folder, start a local static web server:
 py -m http.server 8000
 ```
 
-Open <http://localhost:8000/> in a browser. Select **Art Gallery** to open the
+Open <http://localhost:8000/> in a browser. Select **Satyakam's Art** to open the
 gallery viewer. The gallery and its assets, including looping background music,
 are in `SatyakamsVGal/`.
 

@@ -8,16 +8,22 @@
       content="Explore the Recreation Zone's art gallery and music library."
     />
     <title>Explore | The Recreation Zone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="brand.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="page-shell">
       <aside class="brand-rail" aria-label="The Recreation Zone">
-        <img
-          class="butterfly-logo"
-          src="TRZ-Logo-HD-small.png"
-          alt="The Recreation Zone butterfly emblem"
-        />
+        <a class="site-brand" href="CentralNavigation/index.html" aria-label="The Recreation Zone home">
+          <img class="site-brand-icon" src="TRZ-Logo-HD-small.png" alt="" />
+          <span class="site-brand-label">The Recreation Zone</span>
+        </a>
       </aside>
 
       <header class="page-header">
@@ -26,8 +32,8 @@
 
       <main class="main-content">
         <nav class="experience-links" aria-label="Explore experiences">
-          <a class="experience-button" href="SatyakamsVGal/viewer.html">Art Gallery</a>
-          <a class="experience-button" href="Coming%20Soon/">Music Library</a>
+          <a class="experience-button" href="SatyakamsVGal/viewer.html">Satyakam's Art</a>
+          <a class="experience-button" href="ShrikantsSongs/">Shrikant's Songs</a>
         </nav>
       </main>
     </div>

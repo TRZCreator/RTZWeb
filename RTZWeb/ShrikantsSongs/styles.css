@@ -1,0 +1,308 @@
+:root {
+  color-scheme: dark;
+  --gold: #f7d67a;
+  --gold-mid: #d7a93a;
+  --background: #020303;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+html,
+body {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow-x: hidden;
+  color: var(--gold);
+  background: var(--background);
+  font-family: 'Gelasio', Georgia, serif;
+  text-shadow: 0 0 0.35em rgba(247, 214, 122, 0.18);
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 40%, rgba(10, 17, 22, 0.8), rgba(2, 3, 3, 1) 55%);
+}
+
+.music-page {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  display: flex;
+  min-height: 100vh;
+  min-height: 100svh;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem clamp(0.75rem, 2vw, 1.75rem) 2.5rem;
+  background: transparent;
+}
+
+.page-heading {
+  flex: 0 0 auto;
+  margin: clamp(4rem, 8vh, 5rem) 0 1rem;
+  text-align: center;
+  text-shadow: 0 0 0.12em rgba(255, 239, 171, 0.65), 0 0 1.4rem rgba(247, 214, 122, 0.34);
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin: 0.7rem 0 0;
+  color: rgba(247, 214, 122, 0.72);
+  font: clamp(0.68rem, 1vw, 0.82rem)/1.4 'Gelasio', Georgia, serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.selection-hint {
+  margin: 0.6rem 0 0;
+  color: rgba(247, 214, 122, 0.68);
+  font-size: clamp(0.72rem, 1vw, 0.88rem);
+  line-height: 1.4;
+}
+
+h1 {
+  display: grid;
+  justify-items: center;
+  margin: 0;
+  color: #f7d67a;
+  font-size: clamp(1.3rem, 3.25vw, 2.47rem);
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  text-shadow: 0 0 0.1em rgba(255, 239, 171, 0.75), 0 0 1.2rem rgba(247, 214, 122, 0.48);
+}
+
+h1::after {
+  width: min(100%, 18rem);
+  height: 1px;
+  margin-top: 0.65rem;
+  background: linear-gradient(90deg, transparent, rgba(247, 214, 122, 0.9), transparent);
+  box-shadow: 0 0 0.7rem rgba(247, 214, 122, 0.38);
+  content: "";
+}
+
+.music-stage {
+  display: grid;
+  width: min(100%, 92rem);
+  grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.75fr);
+  align-items: start;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin: 0 auto;
+}
+
+.vinyl-grid {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  align-content: center;
+  gap: clamp(0.35rem, 1vw, 0.75rem);
+}
+
+.vinyl-item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  margin: 0;
+}
+
+.vinyl-artwork {
+  position: relative;
+  display: block;
+  width: 82%;
+  aspect-ratio: 1;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.vinyl-artwork::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18%;
+  aspect-ratio: 1;
+  background: url("Vinyl/FirstAndGifs/GoldenSphere.png") center / contain no-repeat;
+  content: "";
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.vinyl-artwork:hover,
+.vinyl-artwork:focus-visible,
+.vinyl-artwork[aria-pressed="true"] {
+  box-shadow: 0 0 1.1rem rgba(247, 214, 122, 0.3);
+  transform: scale(1.025);
+}
+
+.vinyl-artwork:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.vinyl-artwork img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vinyl-item figcaption {
+  max-width: 100%;
+  color: rgba(247, 214, 122, 0.82);
+  font-size: clamp(0.58rem, 0.8vw, 0.72rem);
+  line-height: 1.25;
+  text-align: center;
+  text-shadow: 0 0 0.4em rgba(247, 214, 122, 0.32);
+  overflow-wrap: anywhere;
+}
+
+.turntable-art {
+  display: grid;
+  min-width: 0;
+  justify-items: center;
+  align-content: start;
+  gap: clamp(0.25rem, 1vh, 0.65rem);
+  margin: 0;
+}
+
+.record-stack-link {
+  display: block;
+  width: min(100%, 19rem);
+  aspect-ratio: 1;
+}
+
+.record-stack-image,
+.gramophone-image {
+  display: block;
+  width: min(100%, 19rem);
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: contain;
+}
+
+.record-stack-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.record-stack-link .record-stack-image {
+  width: 100%;
+}
+
+.gramophone-image {
+  filter: drop-shadow(0 0 1.2rem rgba(215, 169, 58, 0.28));
+}
+
+@media (min-width: 901px) {
+  .music-stage {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.56fr);
+  }
+
+  .turntable-art {
+    width: min(100%, 30rem);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .music-stage {
+    width: min(100%, 52rem);
+    grid-template-columns: 1fr;
+  }
+
+  .vinyl-grid {
+    width: min(100%, 42rem);
+    justify-self: center;
+  }
+
+  .turntable-art {
+    width: min(100%, 24rem);
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    justify-self: center;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .music-page {
+    padding-inline: 0.6rem;
+  }
+
+  .page-heading {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .eyebrow {
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+  }
+
+  .selection-hint {
+    margin-top: 0.45rem;
+    font-size: 0.72rem;
+  }
+
+  .music-stage {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .vinyl-grid {
+    width: min(100%, 35rem);
+    gap: 0.4rem;
+  }
+
+  .turntable-art {
+    width: min(100%, 22rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .turntable-art {
+    width: min(100%, 18rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

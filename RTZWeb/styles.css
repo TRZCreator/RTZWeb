@@ -4,11 +4,18 @@
   --gold: #f7d67a;
   --gold-mid: #d7a93a;
   --gold-deep: #bd861a;
-  --rail-width: clamp(8.5rem, 15.65vw, 12.5rem);
+  --rail-width: clamp(12rem, 15.65vw, 12.5rem);
 }
 
 * {
   box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 html,
@@ -27,7 +34,8 @@ body {
     radial-gradient(ellipse at 78% 73%, rgba(173, 127, 35, 0.08), transparent 18rem),
     radial-gradient(ellipse at 43% 35%, rgba(247, 214, 122, 0.035), transparent 24rem),
     var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Gelasio', Georgia, serif;
+  text-shadow: 0 0 0.35em rgba(247, 214, 122, 0.18);
 }
 
 body::before {
@@ -59,21 +67,20 @@ body::before {
 }
 
 .brand-rail {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: clamp(1.25rem, 3vw, 2.5rem);
+  width: var(--rail-width);
   grid-column: 1;
-  grid-row: 1 / -1;
+  grid-row: auto;
   display: flex;
-  justify-content: center;
-  align-items: start;
-  margin-top: 1.1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 0;
+  padding-top: 1.1rem;
   border-right: 1px solid rgba(247, 214, 122, 0.9);
-}
-
-.butterfly-logo {
-  display: block;
-  width: clamp(3.2rem, 5vw, 4.5rem);
-  height: clamp(3.2rem, 5vw, 4.5rem);
-  object-fit: contain;
-  filter: drop-shadow(0 0 0.55rem rgba(247, 214, 122, 0.56));
 }
 
 .page-header {
@@ -103,7 +110,7 @@ h1 {
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: 0.015em;
-  text-shadow: 0 0 1.1rem rgba(247, 214, 122, 0.27);
+  text-shadow: 0 0 0.12em rgba(255, 239, 171, 0.72), 0 0 0.65em rgba(247, 214, 122, 0.42);
 }
 
 .main-content {
@@ -139,7 +146,7 @@ h1 {
   font-size: clamp(1.5rem, 3vw, 2rem);
   line-height: 1.1;
   text-align: center;
-  text-shadow: 0 1px rgba(255, 239, 171, 0.18);
+  text-shadow: 0 0 0.45em rgba(255, 248, 213, 0.72), 0 1px rgba(255, 239, 171, 0.28);
   filter: drop-shadow(0 0.25rem 0.35rem rgba(0, 0, 0, 0.55));
   transition: filter 180ms ease, transform 180ms ease, background-position 250ms ease;
 }
@@ -194,13 +201,9 @@ h1 {
   }
 
   .brand-rail {
-    margin-top: 1rem;
-    padding-right: 0.75rem;
-  }
-
-  .butterfly-logo {
-    width: 3.25rem;
-    height: 3.25rem;
+    left: 1rem;
+    width: var(--rail-width);
+    padding-top: 1rem;
   }
 
   .page-header {

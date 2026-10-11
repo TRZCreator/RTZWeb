@@ -130,31 +130,34 @@ var plaque_builder = function(name, item_position, item_size, vector, metadata, 
 
 	// Sets the font at `size`, shrinking it if `text` is wider than the plaque
 	var fitFont = function(text, size, weight) {
-		ctx.font = weight + size + "px Inter, Arial, sans-serif";
+		ctx.font = weight + size + "px Gelasio, Georgia, serif";
 		var w = ctx.measureText(text).width;
 		if (w > maxTextW) {
 			size = Math.floor(size * maxTextW / w);
-			ctx.font = weight + size + "px Inter, Arial, sans-serif";
+			ctx.font = weight + size + "px Gelasio, Georgia, serif";
 		}
 	};
 
-	// Title — soft dark-gray text, centered
+	// Title — warm glowing text, centered
 	var titleSize = Math.round(texH * 0.32);
 	fitFont(titleText, titleSize, "bold ");
-	ctx.fillStyle = "#5a5a5a";
+	ctx.fillStyle = "#f7d67a";
+	ctx.shadowColor = "rgba(247, 214, 122, 0.8)";
+	ctx.shadowBlur = Math.max(6, texH * 0.06);
 	ctx.textAlign = "center";
 	ctx.textBaseline = "middle";
 	var centerX = texW / 2;
 	var centerY = subtitleText ? (texH * 0.38) : (texH / 2);
 	ctx.fillText(titleText, centerX, centerY);
 
-	// Subtitle — soft dark-gray text, centered
+	// Subtitle — warm glowing text, centered
 	if (subtitleText) {
 		var subSize = Math.round(texH * 0.22);
 		fitFont(subtitleText, subSize, "");
-		ctx.fillStyle = "#5a5a5a";
+		ctx.fillStyle = "#f7d67a";
 		ctx.fillText(subtitleText, centerX, centerY + titleSize * 0.9);
 	}
+	ctx.shadowBlur = 0;
 
 	dynTex.update();
 	dynTex.hasAlpha = true;
@@ -528,4 +531,3 @@ function _maybeFinishLoad(){
 		reset_loadbar();
 	}
 }
-

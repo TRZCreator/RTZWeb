@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Preview the consistent font used across The Recreation Zone."
+    />
+    <title>Font Preview | The Recreation Zone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="brand.css" />
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "Gelasio", Georgia, serif;
+        color: #f7d67a;
+        background: #050505;
+        text-shadow: 0 0 0.35em rgba(247, 214, 122, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        padding: clamp(1rem, 4vw, 3rem);
+        background:
+          radial-gradient(ellipse at 50% 0, rgba(247, 214, 122, 0.1), transparent 34rem),
+          #050505;
+      }
+
+      .page-shell {
+        display: grid;
+        grid-template-columns: clamp(12rem, 18vw, 13rem) minmax(0, 1fr);
+        grid-template-rows: 8rem minmax(24rem, calc(100vh - 14rem));
+        width: min(100%, 72rem);
+        min-height: min(44rem, calc(100vh - 2rem));
+        margin: 0 auto;
+        padding: 0 clamp(0.75rem, 2vw, 1.5rem);
+      }
+
+      .brand-rail {
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        bottom: 0;
+        left: clamp(1rem, 4vw, 3rem);
+        width: clamp(12rem, 18vw, 13rem);
+        grid-column: 1;
+        grid-row: auto;
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 1rem;
+        border-right: 1px solid rgba(247, 214, 122, 0.72);
+        box-shadow: 1px 0 0.8rem rgba(247, 214, 122, 0.12);
+      }
+
+      .page-header {
+        position: relative;
+        grid-column: 2;
+        grid-row: 1;
+        display: grid;
+        place-items: center;
+        padding: 0 1rem;
+        text-align: center;
+      }
+
+      .page-header::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(247, 214, 122, 0.9) 12%, rgba(255, 239, 171, 0.9) 50%, rgba(247, 214, 122, 0.9) 88%, transparent);
+        box-shadow: 0 0 0.8rem rgba(247, 214, 122, 0.48);
+        content: "";
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.6rem, 4vw, 3rem);
+        font-weight: 400;
+        line-height: 1.2;
+        text-shadow: 0 0 0.12em rgba(255, 239, 171, 0.72), 0 0 0.65em rgba(247, 214, 122, 0.42);
+      }
+
+      .preview-content {
+        grid-column: 2;
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: clamp(1.5rem, 4vh, 2.5rem);
+        padding: clamp(2.5rem, 7vh, 5rem) clamp(0.75rem, 3vw, 2rem);
+      }
+
+      .intro {
+        max-width: 42rem;
+        margin: 0;
+        color: rgba(255, 245, 218, 0.8);
+        font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+        line-height: 1.6;
+      }
+
+      .button-list {
+        display: grid;
+        justify-items: start;
+        gap: clamp(1.25rem, 3.5vw, 2.25rem);
+        width: min(100%, 30rem);
+      }
+
+      .preview-button {
+        position: relative;
+        display: grid;
+        width: 100%;
+        min-height: 4.75rem;
+        place-items: center;
+        isolation: isolate;
+        padding: 0.8rem 2.5rem;
+        overflow: hidden;
+        clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%, 9% 50%);
+        border: 1px solid rgba(255, 239, 171, 0.72);
+        color: #211707;
+        background: linear-gradient(105deg, #bd861a 0%, #d7a93a 42%, #ffe878 76%, #d7a93a 100%);
+        box-shadow: 0 0 1rem rgba(247, 214, 122, 0.38);
+        filter: drop-shadow(0 0.25rem 0.4rem rgba(0, 0, 0, 0.6));
+        font-size: clamp(1.25rem, 3vw, 1.8rem);
+        line-height: 1.15;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: 0 0 0.45em rgba(255, 255, 230, 0.8), 0 1px rgba(255, 239, 171, 0.35);
+        transition: filter 180ms ease, transform 180ms ease;
+      }
+
+      .preview-button::after {
+        position: absolute;
+        z-index: -1;
+        top: -55%;
+        bottom: -55%;
+        left: -45%;
+        width: 24%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+        content: "";
+        transform: skewX(-24deg);
+        transition: left 500ms ease;
+      }
+
+      .preview-button:hover,
+      .preview-button:focus-visible {
+        filter: drop-shadow(0 0 0.55rem rgba(247, 214, 122, 0.85)) drop-shadow(0 0.5rem 0.6rem rgba(0, 0, 0, 0.72));
+        transform: translateY(-3px);
+      }
+
+      .preview-button:hover::after,
+      .preview-button:focus-visible::after {
+        left: 125%;
+      }
+
+      .preview-button:focus-visible {
+        outline: 2px solid #f7d67a;
+        outline-offset: 5px;
+      }
+
+      .preview-button:active {
+        transform: translateY(2px) scale(0.99);
+      }
+
+      .font-note {
+        margin: auto 0 0;
+        color: rgba(255, 245, 218, 0.55);
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 560px) {
+        .page-shell {
+          grid-template-columns: 5rem minmax(0, 1fr);
+          grid-template-rows: 6.5rem minmax(25rem, calc(100vh - 8.5rem));
+          padding-inline: 0.5rem;
+        }
+
+        .brand-rail {
+          left: 0.5rem;
+          width: 5rem;
+        }
+
+        .page-header {
+          padding-inline: 0.5rem;
+        }
+
+        .preview-content {
+          padding-inline: 0.5rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page-shell">
+      <aside class="brand-rail" aria-label="The Recreation Zone">
+        <a class="site-brand" href="CentralNavigation/index.html" aria-label="The Recreation Zone home">
+          <img class="site-brand-icon" src="TRZ-Logo-HD-small.png" alt="" />
+          <span class="site-brand-label">The Recreation Zone</span>
+        </a>
+      </aside>
+      <header class="page-header">
+        <h1>Explore Our Immersive Experience</h1>
+      </header>
+      <section class="preview-content" aria-label="Page style preview">
+        <p class="intro">
+          The Recreation Zone brings art, music, and imagination together.
+          Choose an experience and stay awhile.
+        </p>
+        <nav class="button-list" aria-label="Preview buttons">
+          <a class="preview-button" href="SatyakamsVGal/viewer.html">Satyakam's Art</a>
+          <a class="preview-button" href="ShrikantsSongs/">Shrikant's Songs</a>
+        </nav>
+        <p class="font-note">Gelasio · golden dividers · luminous buttons</p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -32,7 +32,8 @@
     border: var(--border-light);
     border-radius: var(--radius-container);
     color: var(--text-light);
-    font-family: 'Arial', sans-serif;
+    font-family: 'Gelasio', Georgia, serif;
+    text-shadow: 0 0 0.45em rgba(247, 214, 122, 0.48);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -55,6 +56,7 @@
     color: var(--text-light);
     padding: 30px;
     text-align: center;
+    text-shadow: 0 0 0.5em rgba(247, 214, 122, 0.48);
     z-index: 30;
 }
 
@@ -135,12 +137,14 @@
 .help-button,
 .lang-button,
 .close-button {
+    font-family: inherit;
     background-color: var(--bg-btn);
     border: var(--border-btn);
     border-radius: var(--radius-btn);
     color: var(--text-light);
     cursor: pointer;
     text-align: center;
+    text-shadow: 0 0 0.45em rgba(247, 214, 122, 0.72);
 }
 
 /* Shared hover/active state */
