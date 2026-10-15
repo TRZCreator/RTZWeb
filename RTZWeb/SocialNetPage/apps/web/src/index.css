@@ -1,0 +1,771 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 4%;
+  --foreground: 40 20% 90%;
+  --card: 0 0% 8%;
+  --card-foreground: 40 20% 90%;
+  --popover: 0 0% 6%;
+  --popover-foreground: 40 20% 90%;
+  --primary: 39 58% 55%;
+  --primary-foreground: 0 0% 6%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 40 20% 90%;
+  --muted: 0 0% 14%;
+  --muted-foreground: 35 10% 60%;
+  --accent: 39 58% 55%;
+  --accent-foreground: 0 0% 6%;
+  --destructive: 0 62% 47%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 40 15% 22%;
+  --input: 40 15% 22%;
+  --ring: 39 58% 55%;
+  --radius: 0.25rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #050505;
+  color: #ebe4d6;
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: clip;
+}
+
+::selection {
+  background: #b18b48;
+  color: #0a0a0a;
+}
+
+/* ── Header ── */
+.site-header {
+  min-height: 108px;
+  padding: 18px clamp(22px, 4.5vw, 72px) 14px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border-bottom: 1px solid rgba(201, 164, 92, 0.28);
+  position: relative;
+  z-index: 3;
+}
+
+.site-header__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+  color: #9a9080;
+}
+
+.site-header__asterisk {
+  color: #c9a45c;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.site-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.site-header__logo {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.site-header__rule {
+  width: 1px;
+  height: 42px;
+  background: rgba(201, 164, 92, 0.55);
+  flex-shrink: 0;
+}
+
+.site-header__title {
+  margin: 0;
+  font-family: Cinzel, 'Times New Roman', serif;
+  font-weight: 600;
+  font-size: clamp(34px, 4.6vw, 64px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  background: linear-gradient(180deg, #fff4c8 0%, #f0d078 28%, #c9963a 62%, #f6e3a4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(201, 164, 92, 0.28));
+}
+
+.site-header__butterfly {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  transition: transform 0.25s ease-out, filter 0.25s ease-out;
+  filter: drop-shadow(0 0 12px rgba(201, 164, 92, 0.35));
+}
+
+.site-header__logo:hover .site-header__butterfly {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 18px rgba(201, 164, 92, 0.55));
+}
+
+/* ── Launch page ── */
+.launch-page {
+  padding: 0;
+  background: #050505;
+}
+
+.launch-hero {
+  background: #050505;
+  color: #ebe4d6;
+  min-height: min(780px, calc(100dvh - 112px));
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+}
+
+/* Star field layers */
+.launch-hero__stars {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 12%, rgba(255, 250, 235, 0.95), transparent),
+    radial-gradient(1px 1px at 18% 42%, rgba(255, 245, 220, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 28% 8%, rgba(255, 250, 235, 0.9), transparent),
+    radial-gradient(1px 1px at 35% 68%, rgba(255, 240, 200, 0.55), transparent),
+    radial-gradient(2px 2px at 48% 22%, rgba(255, 250, 235, 1), transparent),
+    radial-gradient(1px 1px at 55% 55%, rgba(255, 245, 220, 0.65), transparent),
+    radial-gradient(1.5px 1.5px at 62% 14%, rgba(255, 250, 235, 0.85), transparent),
+    radial-gradient(1px 1px at 72% 78%, rgba(255, 240, 200, 0.5), transparent),
+    radial-gradient(2px 2px at 78% 32%, rgba(255, 250, 235, 0.95), transparent),
+    radial-gradient(1px 1px at 85% 60%, rgba(255, 245, 220, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 92% 18%, rgba(255, 250, 235, 0.9), transparent),
+    radial-gradient(1px 1px at 12% 88%, rgba(255, 240, 200, 0.55), transparent),
+    radial-gradient(1px 1px at 42% 92%, rgba(255, 245, 220, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 95% 85%, rgba(255, 250, 235, 0.8), transparent),
+    radial-gradient(1px 1px at 22% 58%, rgba(201, 164, 92, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 68% 48%, rgba(201, 164, 92, 0.55), transparent),
+    radial-gradient(1px 1px at 5% 35%, rgba(255, 250, 235, 0.5), transparent),
+    radial-gradient(1px 1px at 88% 45%, rgba(255, 250, 235, 0.45), transparent);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  animation: twinkle 6s ease-in-out infinite alternate;
+}
+
+.launch-hero__stars--far {
+  opacity: 0.55;
+  animation-duration: 9s;
+  animation-direction: alternate-reverse;
+  background-image:
+    radial-gradient(1px 1px at 4% 20%, rgba(255, 250, 235, 0.4), transparent),
+    radial-gradient(1px 1px at 15% 70%, rgba(255, 245, 220, 0.35), transparent),
+    radial-gradient(1px 1px at 25% 30%, rgba(255, 250, 235, 0.3), transparent),
+    radial-gradient(1px 1px at 40% 15%, rgba(255, 240, 200, 0.4), transparent),
+    radial-gradient(1px 1px at 50% 80%, rgba(255, 250, 235, 0.35), transparent),
+    radial-gradient(1px 1px at 60% 40%, rgba(255, 245, 220, 0.3), transparent),
+    radial-gradient(1px 1px at 70% 65%, rgba(255, 250, 235, 0.4), transparent),
+    radial-gradient(1px 1px at 80% 10%, rgba(255, 240, 200, 0.35), transparent),
+    radial-gradient(1px 1px at 90% 55%, rgba(255, 250, 235, 0.3), transparent),
+    radial-gradient(1px 1px at 33% 50%, rgba(201, 164, 92, 0.35), transparent),
+    radial-gradient(1px 1px at 77% 88%, rgba(255, 250, 235, 0.35), transparent),
+    radial-gradient(1px 1px at 10% 50%, rgba(255, 245, 220, 0.25), transparent);
+}
+
+.launch-hero__stars--dense {
+  opacity: 0.82;
+  animation: twinkle 8s ease-in-out infinite alternate-reverse;
+  background-image:
+    radial-gradient(1px 1px at 2% 6%, rgba(255, 250, 235, 0.72), transparent),
+    radial-gradient(1px 1px at 5% 18%, rgba(255, 245, 220, 0.58), transparent),
+    radial-gradient(1px 1px at 8% 31%, rgba(255, 250, 235, 0.66), transparent),
+    radial-gradient(1px 1px at 11% 47%, rgba(201, 164, 92, 0.58), transparent),
+    radial-gradient(1px 1px at 14% 63%, rgba(255, 240, 200, 0.54), transparent),
+    radial-gradient(1px 1px at 17% 78%, rgba(255, 250, 235, 0.68), transparent),
+    radial-gradient(1px 1px at 20% 92%, rgba(255, 245, 220, 0.52), transparent),
+    radial-gradient(1px 1px at 23% 14%, rgba(255, 250, 235, 0.7), transparent),
+    radial-gradient(1px 1px at 26% 27%, rgba(255, 240, 200, 0.56), transparent),
+    radial-gradient(1px 1px at 29% 42%, rgba(201, 164, 92, 0.5), transparent),
+    radial-gradient(1px 1px at 32% 57%, rgba(255, 250, 235, 0.64), transparent),
+    radial-gradient(1px 1px at 35% 73%, rgba(255, 245, 220, 0.56), transparent),
+    radial-gradient(1px 1px at 38% 88%, rgba(255, 250, 235, 0.7), transparent),
+    radial-gradient(1px 1px at 41% 4%, rgba(255, 240, 200, 0.5), transparent),
+    radial-gradient(1px 1px at 44% 19%, rgba(255, 250, 235, 0.66), transparent),
+    radial-gradient(1px 1px at 47% 35%, rgba(201, 164, 92, 0.54), transparent),
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 245, 220, 0.58), transparent),
+    radial-gradient(1px 1px at 53% 66%, rgba(255, 250, 235, 0.7), transparent),
+    radial-gradient(1px 1px at 56% 82%, rgba(255, 240, 200, 0.52), transparent),
+    radial-gradient(1px 1px at 59% 96%, rgba(255, 250, 235, 0.64), transparent),
+    radial-gradient(1px 1px at 62% 8%, rgba(255, 245, 220, 0.56), transparent),
+    radial-gradient(1px 1px at 65% 24%, rgba(255, 250, 235, 0.72), transparent),
+    radial-gradient(1px 1px at 68% 39%, rgba(201, 164, 92, 0.5), transparent),
+    radial-gradient(1px 1px at 71% 55%, rgba(255, 240, 200, 0.58), transparent),
+    radial-gradient(1px 1px at 74% 70%, rgba(255, 250, 235, 0.66), transparent),
+    radial-gradient(1px 1px at 77% 86%, rgba(255, 245, 220, 0.54), transparent),
+    radial-gradient(1px 1px at 80% 2%, rgba(255, 250, 235, 0.68), transparent),
+    radial-gradient(1px 1px at 83% 17%, rgba(255, 240, 200, 0.52), transparent),
+    radial-gradient(1px 1px at 86% 33%, rgba(201, 164, 92, 0.58), transparent),
+    radial-gradient(1px 1px at 89% 48%, rgba(255, 250, 235, 0.7), transparent),
+    radial-gradient(1px 1px at 92% 64%, rgba(255, 245, 220, 0.56), transparent),
+    radial-gradient(1px 1px at 95% 79%, rgba(255, 250, 235, 0.66), transparent),
+    radial-gradient(1px 1px at 98% 94%, rgba(255, 240, 200, 0.5), transparent),
+    radial-gradient(1px 1px at 4% 40%, rgba(255, 250, 235, 0.56), transparent),
+    radial-gradient(1px 1px at 7% 56%, rgba(255, 245, 220, 0.68), transparent),
+    radial-gradient(1px 1px at 10% 71%, rgba(201, 164, 92, 0.5), transparent),
+    radial-gradient(1px 1px at 13% 87%, rgba(255, 250, 235, 0.62), transparent),
+    radial-gradient(1px 1px at 16% 3%, rgba(255, 240, 200, 0.54), transparent),
+    radial-gradient(1px 1px at 19% 21%, rgba(255, 250, 235, 0.7), transparent),
+    radial-gradient(1px 1px at 22% 36%, rgba(255, 245, 220, 0.52), transparent),
+    radial-gradient(1px 1px at 25% 52%, rgba(255, 250, 235, 0.64), transparent),
+    radial-gradient(1px 1px at 28% 68%, rgba(201, 164, 92, 0.56), transparent),
+    radial-gradient(1px 1px at 31% 83%, rgba(255, 240, 200, 0.68), transparent),
+    radial-gradient(1px 1px at 34% 98%, rgba(255, 250, 235, 0.5), transparent),
+    radial-gradient(1px 1px at 37% 11%, rgba(255, 245, 220, 0.6), transparent),
+    radial-gradient(1px 1px at 40% 26%, rgba(255, 250, 235, 0.72), transparent),
+    radial-gradient(1px 1px at 43% 42%, rgba(201, 164, 92, 0.52), transparent),
+    radial-gradient(1px 1px at 46% 58%, rgba(255, 240, 200, 0.56), transparent),
+    radial-gradient(1px 1px at 49% 74%, rgba(255, 250, 235, 0.68), transparent),
+    radial-gradient(1px 1px at 52% 89%, rgba(255, 245, 220, 0.54), transparent),
+    radial-gradient(1px 1px at 55% 5%, rgba(255, 250, 235, 0.62), transparent),
+    radial-gradient(1px 1px at 58% 21%, rgba(255, 240, 200, 0.5), transparent),
+    radial-gradient(1px 1px at 61% 37%, rgba(201, 164, 92, 0.58), transparent),
+    radial-gradient(1px 1px at 64% 53%, rgba(255, 250, 235, 0.66), transparent),
+    radial-gradient(1px 1px at 67% 69%, rgba(255, 245, 220, 0.56), transparent),
+    radial-gradient(1px 1px at 70% 84%, rgba(255, 250, 235, 0.7), transparent),
+    radial-gradient(1px 1px at 73% 99%, rgba(255, 240, 200, 0.52), transparent),
+    radial-gradient(1px 1px at 76% 12%, rgba(255, 250, 235, 0.64), transparent),
+    radial-gradient(1px 1px at 79% 28%, rgba(255, 245, 220, 0.54), transparent),
+    radial-gradient(1px 1px at 82% 44%, rgba(201, 164, 92, 0.5), transparent),
+    radial-gradient(1px 1px at 85% 60%, rgba(255, 250, 235, 0.72), transparent),
+    radial-gradient(1px 1px at 88% 76%, rgba(255, 240, 200, 0.56), transparent),
+    radial-gradient(1px 1px at 91% 91%, rgba(255, 250, 235, 0.66), transparent),
+    radial-gradient(1px 1px at 94% 10%, rgba(255, 245, 220, 0.52), transparent),
+    radial-gradient(1px 1px at 97% 26%, rgba(255, 250, 235, 0.68), transparent),
+    radial-gradient(1px 1px at 1% 58%, rgba(201, 164, 92, 0.54), transparent),
+    radial-gradient(1px 1px at 3% 76%, rgba(255, 240, 200, 0.62), transparent),
+    radial-gradient(1px 1px at 6% 96%, rgba(255, 250, 235, 0.5), transparent),
+    radial-gradient(1px 1px at 9% 9%, rgba(255, 245, 220, 0.7), transparent),
+    radial-gradient(1px 1px at 12% 25%, rgba(255, 250, 235, 0.56), transparent),
+    radial-gradient(1px 1px at 15% 41%, rgba(201, 164, 92, 0.62), transparent),
+    radial-gradient(1px 1px at 18% 57%, rgba(255, 240, 200, 0.52), transparent),
+    radial-gradient(1px 1px at 21% 73%, rgba(255, 250, 235, 0.66), transparent),
+    radial-gradient(1px 1px at 24% 89%, rgba(255, 245, 220, 0.58), transparent),
+    radial-gradient(1px 1px at 27% 5%, rgba(255, 250, 235, 0.72), transparent),
+    radial-gradient(1px 1px at 30% 20%, rgba(255, 240, 200, 0.54), transparent),
+    radial-gradient(1px 1px at 33% 38%, rgba(201, 164, 92, 0.5), transparent),
+    radial-gradient(1px 1px at 36% 54%, rgba(255, 250, 235, 0.68), transparent),
+    radial-gradient(1px 1px at 39% 70%, rgba(255, 245, 220, 0.56), transparent),
+    radial-gradient(1px 1px at 42% 86%, rgba(255, 250, 235, 0.64), transparent),
+    radial-gradient(1px 1px at 45% 1%, rgba(255, 240, 200, 0.5), transparent),
+    radial-gradient(1px 1px at 48% 17%, rgba(255, 250, 235, 0.7), transparent),
+    radial-gradient(1px 1px at 51% 33%, rgba(201, 164, 92, 0.56), transparent),
+    radial-gradient(1px 1px at 54% 49%, rgba(255, 245, 220, 0.62), transparent),
+    radial-gradient(1px 1px at 57% 65%, rgba(255, 250, 235, 0.54), transparent),
+    radial-gradient(1px 1px at 60% 81%, rgba(255, 240, 200, 0.68), transparent),
+    radial-gradient(1px 1px at 63% 97%, rgba(255, 250, 235, 0.52), transparent),
+    radial-gradient(1px 1px at 66% 13%, rgba(255, 245, 220, 0.7), transparent),
+    radial-gradient(1px 1px at 69% 29%, rgba(255, 250, 235, 0.56), transparent),
+    radial-gradient(1px 1px at 72% 45%, rgba(201, 164, 92, 0.6), transparent),
+    radial-gradient(1px 1px at 75% 61%, rgba(255, 240, 200, 0.54), transparent),
+    radial-gradient(1px 1px at 78% 77%, rgba(255, 250, 235, 0.66), transparent),
+    radial-gradient(1px 1px at 81% 93%, rgba(255, 245, 220, 0.58), transparent),
+    radial-gradient(1px 1px at 84% 7%, rgba(255, 250, 235, 0.72), transparent),
+    radial-gradient(1px 1px at 87% 23%, rgba(255, 240, 200, 0.5), transparent),
+    radial-gradient(1px 1px at 90% 39%, rgba(201, 164, 92, 0.56), transparent),
+    radial-gradient(1px 1px at 93% 55%, rgba(255, 250, 235, 0.64), transparent),
+    radial-gradient(1px 1px at 96% 71%, rgba(255, 245, 220, 0.54), transparent),
+    radial-gradient(1px 1px at 99% 87%, rgba(255, 250, 235, 0.68), transparent);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.launch-hero__topline,
+.launch-hero__bottomline {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px clamp(26px, 4.9vw, 84px);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  color: #8a8070;
+}
+
+.launch-hero__topline {
+  border-bottom: 1px solid rgba(201, 164, 92, 0.15);
+}
+
+.launch-hero__bottomline {
+  border-top: 1px solid rgba(201, 164, 92, 0.15);
+  margin-top: auto;
+}
+
+.launch-hero__bottom-center {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.launch-hero__bottom-center svg {
+  color: #c9a45c;
+}
+
+.launch-hero__body {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(260px, 420px);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+  padding: 48px clamp(22px, 6vw, 88px) 72px;
+}
+
+.gold-type {
+  font-family: Cinzel, 'Times New Roman', serif;
+  font-weight: 600;
+  background: linear-gradient(180deg, #fff6d2 0%, #f1d27c 32%, #c9963a 68%, #f8e6ae 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1px 8px rgba(201, 164, 92, 0.22));
+}
+
+.social-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(22px, 3.2vw, 36px);
+}
+
+.social-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 28px);
+  text-decoration: none;
+  min-height: 64px;
+  border-radius: 12px;
+}
+
+.social-row:hover .social-row__label,
+.social-row:focus-visible .social-row__label {
+  filter: drop-shadow(0 0 12px rgba(241, 210, 124, 0.45));
+}
+
+.social-row:focus-visible {
+  outline: 1px solid rgba(201, 164, 92, 0.7);
+  outline-offset: 6px;
+}
+
+.social-row__icon {
+  width: clamp(56px, 6vw, 72px);
+  height: clamp(56px, 6vw, 72px);
+  flex-shrink: 0;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+
+.social-row__label {
+  font-size: clamp(28px, 3.1vw, 42px);
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.brand-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  justify-self: end;
+}
+
+.brand-lockup__mark {
+  width: min(100%, 340px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 28px rgba(201, 164, 92, 0.38));
+}
+
+.brand-lockup__name {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(22px, 2.2vw, 32px);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.launch-hero__copy {
+  position: relative;
+  z-index: 2;
+}
+
+.launch-hero__issue {
+  color: #c9a45c;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.23em;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-bottom: 32px;
+  white-space: nowrap;
+}
+
+.launch-hero__issue-line {
+  display: inline-block;
+  height: 1px;
+  width: 44px;
+  background: #c9a45c;
+}
+
+.launch-hero h1 {
+  font-size: clamp(78px, 9vw, 150px);
+  line-height: 0.98;
+  letter-spacing: -0.078em;
+  font-weight: 500;
+  margin: 0 0 47px;
+  color: #f2ebe0;
+}
+
+.launch-hero h1 em {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  color: #d4b574;
+}
+
+.launch-hero__period {
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  letter-spacing: -0.08em;
+}
+
+.launch-hero__intro {
+  display: flex;
+  gap: 26px;
+  align-items: flex-start;
+  max-width: 390px;
+}
+
+.launch-hero__intro-symbol {
+  color: #c9a45c;
+  font-size: 23px;
+  line-height: 1.4;
+}
+
+.launch-hero__intro p {
+  margin: 0;
+  color: #a89e8e;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Hero art — logo image */
+.launch-hero__art {
+  grid-column: 2;
+  position: relative;
+  width: min(100%, 440px);
+  aspect-ratio: 1;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.launch-hero__art-glow {
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(201, 164, 92, 0.22) 0%,
+    rgba(201, 164, 92, 0.08) 45%,
+    transparent 70%
+  );
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.launch-hero__art-logo {
+  position: relative;
+  z-index: 1;
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 28px rgba(201, 164, 92, 0.35));
+  transition: transform 0.35s ease-out, filter 0.35s ease-out;
+}
+
+.launch-hero__art:hover .launch-hero__art-logo {
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 40px rgba(201, 164, 92, 0.5));
+}
+
+.launch-hero__art-caption {
+  position: absolute;
+  bottom: 2%;
+  left: -2%;
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  color: #7a7060;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+/* Closing note */
+.closing-note {
+  min-height: 260px;
+  padding: 55px clamp(26px, 6.5vw, 110px);
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 20px;
+  background: #050505;
+  border-top: 1px solid rgba(201, 164, 92, 0.12);
+}
+
+.closing-note__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #c9a45c;
+  align-self: start;
+  padding-top: 13px;
+}
+
+.closing-note p {
+  font-size: clamp(27px, 3.2vw, 49px);
+  line-height: 1.3;
+  letter-spacing: -0.055em;
+  margin: 0;
+  color: #ebe4d6;
+}
+
+.closing-note p em {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #d4b574;
+  font-weight: 400;
+}
+
+.closing-note__mark {
+  justify-self: end;
+  color: #c9a45c;
+  font-size: 50px;
+  font-weight: 400;
+}
+
+.site-footer {
+  margin: 0;
+  padding: 22px clamp(26px, 4.9vw, 84px) 31px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid rgba(201, 164, 92, 0.15);
+  background: #050505;
+  color: #7a7060;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 850px) {
+  .launch-hero__body {
+    grid-template-columns: 1fr;
+    padding: 36px 7vw 64px;
+    gap: 48px;
+  }
+
+  .brand-lockup {
+    justify-self: center;
+    order: 2;
+  }
+
+  .social-list {
+    order: 1;
+  }
+
+  .brand-lockup__name {
+    white-space: normal;
+  }
+
+  .launch-hero h1 {
+    font-size: clamp(80px, 14vw, 140px);
+  }
+
+  .closing-note {
+    grid-template-columns: 1fr auto;
+  }
+
+  .closing-note__label {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    min-height: 90px;
+    padding: 17px 24px;
+  }
+
+  .site-header__eyebrow {
+    font-size: 8px;
+    max-width: 150px;
+    line-height: 1.7;
+    gap: 9px;
+  }
+
+  .site-header__logo {
+    width: 48px;
+    height: 48px;
+    flex: none;
+  }
+
+  .site-header__butterfly {
+    width: 48px;
+    height: 48px;
+  }
+
+  .site-header__title {
+    font-size: clamp(26px, 8vw, 36px);
+  }
+
+  .site-header__rule {
+    height: 28px;
+  }
+
+  .launch-hero {
+    min-height: calc(100dvh - 90px);
+  }
+
+  .launch-hero__topline,
+  .launch-hero__bottomline {
+    padding: 22px 20px;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+
+  .launch-hero__topline span:last-child {
+    display: none;
+  }
+
+  .launch-hero__bottom-center {
+    display: none;
+  }
+
+  .launch-hero__body {
+    padding: 70px 25px 75px;
+    gap: 45px;
+  }
+
+  .social-row__label {
+    font-size: clamp(22px, 6.4vw, 30px);
+  }
+
+  .brand-lockup__mark {
+    width: min(78vw, 280px);
+  }
+
+  .launch-hero__issue {
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    margin-bottom: 26px;
+    gap: 11px;
+  }
+
+  .launch-hero__issue-line {
+    width: 24px;
+  }
+
+  .launch-hero h1 {
+    font-size: clamp(64px, 16vw, 100px);
+    margin-bottom: 30px;
+  }
+
+  .launch-hero__intro {
+    gap: 15px;
+  }
+
+  .launch-hero__intro p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .launch-hero__art {
+    width: min(82%, 320px);
+  }
+
+  .launch-hero__art-caption {
+    font-size: 7px;
+  }
+
+  .closing-note {
+    min-height: 260px;
+    padding: 45px 20px;
+  }
+
+  .closing-note p {
+    font-size: 29px;
+  }
+
+  .closing-note__mark {
+    font-size: 28px;
+    align-self: end;
+  }
+
+  .site-footer {
+    padding: 22px 20px 30px;
+    flex-direction: column;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
