@@ -30,8 +30,10 @@ jobs:
           mkdir _site
           cp RTZWeb/index.html RTZWeb/styles.css RTZWeb/brand.css RTZWeb/TRZ-Logo-HD-small.png RTZWeb/font-preview.html _site/
           cp -R RTZWeb/CentralNavigation RTZWeb/ComingSoon RTZWeb/SatyakamsVGal RTZWeb/SocialNetPage _site/
-          mkdir -p _site/ShrikantsSongs/Vinyl
-          cp RTZWeb/ShrikantsSongs/index.html RTZWeb/ShrikantsSongs/styles.css RTZWeb/ShrikantsSongs/script.js RTZWeb/ShrikantsSongs/T-GoldGramophone.gif _site/ShrikantsSongs/
+          mkdir -p _site/ShrikantsSongs/Vinyl _site/ThirdPartyLogos
+          cp RTZWeb/ThirdPartyLogos/*.png RTZWeb/ThirdPartyLogos/*.svg _site/ThirdPartyLogos/
+          cp RTZWeb/ShrikantsSongs/index.html RTZWeb/ShrikantsSongs/styles.css RTZWeb/ShrikantsSongs/script.js RTZWeb/ShrikantsSongs/T-GoldGramophone.gif RTZWeb/ShrikantsSongs/gramophone-needle-cursor.png _site/ShrikantsSongs/
+          cp -R "RTZWeb/ShrikantsSongs/DSP Icons" _site/ShrikantsSongs/
           cp -R RTZWeb/ShrikantsSongs/Vinyl/FirstAndGifs _site/ShrikantsSongs/Vinyl/
 
       - name: Configure GitHub Pages
