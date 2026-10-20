@@ -64,7 +64,7 @@ export const EDIT_MODE_STYLES = `
 		color: ${COLOR_WHITE};
 		padding: 0 4px;
 		border-radius: 6px;
-		font-family: DM Sans, sans-serif;
+		font-family: Gelasio, Georgia, serif;
 		font-size: 12px;
 		font-weight: 400;
 		line-height: 20px;

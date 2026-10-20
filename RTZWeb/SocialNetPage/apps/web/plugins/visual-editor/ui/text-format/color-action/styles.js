@@ -13,7 +13,7 @@ export const COLOR_ACTION_STYLES = `
   border-radius: 20px;
   padding: 12px;
   box-shadow: ${BOX_SHADOW_DROPDOWN};
-  font-family: DM Sans, sans-serif;
+  font-family: Gelasio, Georgia, serif;
   user-select: none;
 }
 

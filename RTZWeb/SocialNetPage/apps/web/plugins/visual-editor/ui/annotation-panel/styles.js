@@ -14,7 +14,7 @@ export const ANNOTATION_PANEL_STYLES = `
 		box-shadow: ${BOX_SHADOW_TOOLBAR};
 		pointer-events: all;
 		box-sizing: border-box;
-		font-family: DM Sans, sans-serif;
+		font-family: Gelasio, Georgia, serif;
 
 		&.active {
 			display: flex;

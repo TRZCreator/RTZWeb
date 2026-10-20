@@ -72,6 +72,12 @@ const selectionHint = document.querySelector('.selection-hint');
 let currentTrackName = '';
 let activeRecord = null;
 
+function showPlaybackError(action) {
+  selectionHint.textContent = location.protocol === 'file:'
+    ? 'Open this page through a local web server to play songs.'
+    : `${action}: ${currentTrackName}`;
+}
+
 function setRecordAnimation(button, isAnimated) {
   const image = button.querySelector('img');
   const trackName = button.parentElement.querySelector('figcaption').textContent;
@@ -99,12 +105,12 @@ audioPlayer.addEventListener('ended', () => {
     setRecordAnimation(activeRecord, false);
     activeRecord = null;
   }
-  selectionHint.textContent = 'Turn up a favorite. Stay awhile.';
+  selectionHint.textContent = 'Turn up a favorite. Stay a while.';
 });
 
 audioPlayer.addEventListener('error', () => {
   if (currentTrackName) {
-    selectionHint.textContent = `Unable to load: ${currentTrackName}`;
+    showPlaybackError('Unable to load');
   }
 });
 
@@ -118,7 +124,7 @@ document.querySelectorAll('.vinyl-artwork').forEach((button) => {
       setRecordAnimation(button, false);
       audioPlayer.pause();
       audioPlayer.currentTime = 0;
-      selectionHint.textContent = 'Turn up a favorite. Stay awhile.';
+      selectionHint.textContent = 'Turn up a favorite. Stay a while.';
       return;
     }
 
@@ -140,7 +146,7 @@ document.querySelectorAll('.vinyl-artwork').forEach((button) => {
         setRecordAnimation(button, false);
         activeRecord = null;
       }
-      selectionHint.textContent = `Unable to play: ${currentTrackName}`;
+      showPlaybackError('Unable to play');
     });
   });
 });

@@ -12,7 +12,9 @@ py -m http.server 8000
 
 Open <http://localhost:8000/> in a browser. Select **Satyakam's Art** to open the
 gallery viewer. The gallery and its assets, including looping background music,
-are in `SatyakamsVGal/`.
+are in `SatyakamsVGal/`. The songs in `ShrikantsSongs/` also need to be opened
+through the web server to play.
 
 Use a local web server rather than opening `index.html` as a `file://` URL;
-the 3D viewer loads local models, textures, and configuration files.
+the 3D viewer loads local models, textures, and configuration files, and browsers
+do not allow the songs page to play its local audio files directly.

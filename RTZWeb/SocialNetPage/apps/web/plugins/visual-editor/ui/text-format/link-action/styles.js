@@ -14,7 +14,7 @@ export const LINK_ACTION_STYLES = `
   box-sizing: border-box;
   box-shadow: ${BOX_SHADOW_DROPDOWN};
   user-select: none;
-  font-family: DM Sans, sans-serif;
+  font-family: Gelasio, Georgia, serif;
 }
 
 #${LINK_ACTION_ID}.tla-visible {
@@ -26,7 +26,7 @@ export const LINK_ACTION_STYLES = `
   border: 1px solid ${BORDER_COLOR};
   border-radius: 8px;
   color: ${COLOR_WHITE};
-  font-family: DM Sans, sans-serif;
+  font-family: Gelasio, Georgia, serif;
   font-size: 12px;
   line-height: 20px;
   padding: 6px 8px;

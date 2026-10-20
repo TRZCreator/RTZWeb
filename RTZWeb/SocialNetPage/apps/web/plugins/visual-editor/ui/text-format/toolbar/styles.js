@@ -14,7 +14,7 @@ export const TOOLBAR_STYLES = `
   box-shadow: ${BOX_SHADOW_TOOLBAR};
   user-select: none;
   color: ${COLOR_WHITE};
-  font-family: DM Sans, sans-serif;
+  font-family: Gelasio, Georgia, serif;
   white-space: nowrap;
   cursor: grab;
   /* Never exceed the viewport — the inner row scrolls horizontally instead. */
@@ -49,7 +49,7 @@ export const TOOLBAR_STYLES = `
   border: none;
   border-radius: 8px;
   color: ${COLOR_WHITE};
-  font-family: DM Sans, sans-serif;
+  font-family: Gelasio, Georgia, serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
@@ -123,7 +123,7 @@ export const TOOLBAR_STYLES = `
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  font-family: DM Sans, sans-serif;
+  font-family: Gelasio, Georgia, serif;
   cursor: text;
 }
 .tft-font-size--editing::after {

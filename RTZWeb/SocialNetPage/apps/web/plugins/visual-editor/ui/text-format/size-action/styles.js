@@ -14,7 +14,7 @@ export const SIZE_ACTION_STYLES = `
   border-radius: 12px;
   padding: 4px;
   box-shadow: ${BOX_SHADOW_DROPDOWN};
-  font-family: DM Sans, sans-serif;
+  font-family: Gelasio, Georgia, serif;
   user-select: none;
 }
 

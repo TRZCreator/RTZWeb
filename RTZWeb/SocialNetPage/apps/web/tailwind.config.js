@@ -13,6 +13,11 @@ export default {
 			},
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Gelasio', 'Georgia', 'serif'],
+				serif: ['Gelasio', 'Georgia', 'serif'],
+				mono: ['Gelasio', 'Georgia', 'serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
